@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.18.0
+%define version 2.18.1
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -64,5 +64,3 @@ fi
 %_datadir/gnome/vino/
 %_datadir/applications/vino-preferences.desktop
 %_datadir/icons/hicolor/48x48/apps/*
-
-
