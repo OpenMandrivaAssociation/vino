@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.18.1
+%define version 2.19.5
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -61,6 +61,6 @@ fi
 %_bindir/vino-session
 %_libdir/bonobo/servers/GNOME_RemoteDesktop.server
 %_libexecdir/vino-server
-%_datadir/gnome/vino/
+%_datadir/vino
 %_datadir/applications/vino-preferences.desktop
 %_datadir/icons/hicolor/48x48/apps/*
