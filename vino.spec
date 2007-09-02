@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.19.90
+%define version 2.19.92
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -7,6 +7,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
+Patch: vino-2.19.92-desktop-file.patch
 License: GPL
 Group: Networking/Remote access
 Url: http://www.gnome.org
@@ -24,6 +25,7 @@ The package contains an integrated GNOME VNC server.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 #gw remove session support once we move to gnome-session 2.8
