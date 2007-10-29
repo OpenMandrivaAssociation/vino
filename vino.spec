@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.20.1
+%define version 2.21.1
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -7,7 +7,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
-Patch: vino-2.19.92-desktop-file.patch
 License: GPL
 Group: Networking/Remote access
 Url: http://www.gnome.org
@@ -15,6 +14,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
+BuildRequires: libnotify-devel
 BuildRequires: perl-XML-Parser
 BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
@@ -25,11 +25,9 @@ The package contains an integrated GNOME VNC server.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
-#gw remove session support once we move to gnome-session 2.8
-%configure2_5x --enable-session-support --enable-avahi
+%configure2_5x --enable-avahi
 %make
 
 %install
@@ -60,9 +58,7 @@ fi
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
 %_sysconfdir/gconf/schemas/vino-server.schemas
 %_bindir/vino-preferences
-%_bindir/vino-session
 %_libdir/bonobo/servers/GNOME_RemoteDesktop.server
 %_libexecdir/vino-server
 %_datadir/vino
 %_datadir/applications/vino-preferences.desktop
-%_datadir/icons/hicolor/48x48/apps/*
