@@ -10,6 +10,7 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Networking/Remote access
 Url: http://www.gnome.org
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
