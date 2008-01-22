@@ -1,13 +1,13 @@
 %define name vino
 %define version 2.21.3
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: GNOME VNC server and client
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
-License: GPL
+License: GPLv2+
 Group: Networking/Remote access
 Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
