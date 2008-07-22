@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.22.2
+%define version 2.23.5
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -15,7 +15,7 @@ BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
 BuildRequires: libnotify-devel
-BuildRequires: perl-XML-Parser
+BuildRequires: intltool
 BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
 BuildRequires: desktop-file-utils
@@ -57,6 +57,7 @@ fi
 %defattr(-,root,root)
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
 %_sysconfdir/gconf/schemas/vino-server.schemas
+%_bindir/vino-passwd
 %_bindir/vino-preferences
 %_libdir/bonobo/servers/GNOME_RemoteDesktop.server
 %_libexecdir/vino-server
