@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.23.5
+%define version 2.23.90
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -63,3 +63,5 @@ fi
 %_libexecdir/vino-server
 %_datadir/vino
 %_datadir/applications/vino-preferences.desktop
+%_datadir/gnome/autostart/vino-server.desktop
+
