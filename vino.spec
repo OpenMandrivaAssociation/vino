@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.23.90
+%define version 2.23.91
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -59,7 +59,6 @@ fi
 %_sysconfdir/gconf/schemas/vino-server.schemas
 %_bindir/vino-passwd
 %_bindir/vino-preferences
-%_libdir/bonobo/servers/GNOME_RemoteDesktop.server
 %_libexecdir/vino-server
 %_datadir/vino
 %_datadir/applications/vino-preferences.desktop
