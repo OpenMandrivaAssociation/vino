@@ -14,6 +14,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
+BuildRequires: libsoup-devel
 BuildRequires: libnotify-devel
 BuildRequires: intltool
 BuildRequires: libxtst-devel
