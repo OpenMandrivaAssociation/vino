@@ -16,7 +16,7 @@ BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
 BuildRequires: libsoup-devel
 BuildRequires: libnotify-devel
-BuildRequires: libunique-devel
+BuildRequires: unique-devel
 BuildRequires: intltool
 BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
