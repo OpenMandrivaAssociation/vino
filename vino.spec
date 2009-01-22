@@ -1,6 +1,6 @@
 %define name vino
 %define version 2.25.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: GNOME VNC server and client
 Name: %{name}
@@ -16,6 +16,7 @@ BuildRequires: libglade2.0-devel
 BuildRequires: libgnutls-devel
 BuildRequires: libsoup-devel
 BuildRequires: libnotify-devel
+BuildRequires: libunique-devel
 BuildRequires: intltool
 BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
