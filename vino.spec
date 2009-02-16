@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.25.90
+%define version 2.25.91
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
@@ -59,10 +59,10 @@ fi
 %defattr(-,root,root)
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
 %_sysconfdir/gconf/schemas/vino-server.schemas
+%_sysconfdir/xdg/autostart/vino-server.desktop
 %_bindir/vino-passwd
 %_bindir/vino-preferences
 %_libexecdir/vino-server
 %_datadir/vino
 %_datadir/applications/vino-preferences.desktop
-%_datadir/gnome/autostart/vino-server.desktop
 
