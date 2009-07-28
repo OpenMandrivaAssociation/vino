@@ -1,13 +1,12 @@
 %define name vino
-%define version 2.26.2
-%define release %mkrel 2
+%define version 2.27.5
+%define release %mkrel 1
 
 Summary: GNOME VNC server and client
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
-Patch0: vino-2.26.2-gnutls-2.8.patch
 License: GPLv2+
 Group: Networking/Remote access
 Url: http://www.gnome.org
@@ -21,6 +20,7 @@ BuildRequires: unique-devel
 BuildRequires: intltool
 BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
+BuildRequires: dbus-glib-devel
 BuildRequires: desktop-file-utils
 
 %description
@@ -28,12 +28,11 @@ The package contains an integrated GNOME VNC server.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
-autoreconf -fi
 %configure2_5x --enable-avahi
-%make
+#gw add missing libs, parallel make is broken in 2.27.5
+make LIBS="-lSM -ljpeg"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -68,4 +67,5 @@ fi
 %_libexecdir/vino-server
 %_datadir/vino
 %_datadir/applications/vino-preferences.desktop
+%_datadir/dbus-1/services/org.gnome.Vino.service
 
