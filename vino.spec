@@ -1,6 +1,6 @@
 %define name vino
 %define version 2.28.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: GNOME VNC server and client
 Name: %{name}
@@ -22,6 +22,8 @@ BuildRequires: libxtst-devel
 BuildRequires: libxdamage-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: desktop-file-utils
+BuildRequires: libtelepathy-glib-devel
+BuildRequires: gnome-keyring-devel
 
 %description
 The package contains an integrated GNOME VNC server.
@@ -30,7 +32,15 @@ The package contains an integrated GNOME VNC server.
 %setup -q
 
 %build
-%configure2_5x --enable-avahi
+%configure2_5x \
+  --enable-avahi \
+  --enable-telepathy \
+  --enable-gnome-keyring \
+  --disable-http-server		\
+  --enable-libnotify 		\
+  --disable-network-manager
+
+
 #gw add missing libs, parallel make is broken in 2.27.5
 make LIBS="-lSM -ljpeg"
 
@@ -38,11 +48,6 @@ make LIBS="-lSM -ljpeg"
 rm -rf $RPM_BUILD_ROOT
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 %find_lang %name --with-gnome
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="X-MandrivaLinux-System-Configuration-GNOME" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
