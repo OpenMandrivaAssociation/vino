@@ -23,7 +23,7 @@ BuildRequires: libxdamage-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: desktop-file-utils
 BuildRequires: libtelepathy-glib-devel
-BuildRequires: gnome-keyring-devel
+BuildRequires: libgnome-keyring-devel
 
 %description
 The package contains an integrated GNOME VNC server.
