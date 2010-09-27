@@ -1,5 +1,5 @@
 %define name vino
-%define version 2.31.91
+%define version 2.32.0
 %define release %mkrel 1
 
 Summary: GNOME VNC server and client
