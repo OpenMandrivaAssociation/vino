@@ -31,6 +31,7 @@ BuildRequires: intltool
 BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-glib-devel
 BuildRequires: libgnome-keyring-devel
+BuildRequires: libGConf2-devel GConf2
 
 %description
 The package contains an integrated GNOME VNC server.
