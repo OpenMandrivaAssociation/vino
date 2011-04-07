@@ -1,6 +1,6 @@
 %define name vino
 %define version 2.32.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: GNOME VNC server and client
 Name: %{name}
@@ -11,17 +11,24 @@ License: GPLv2+
 Group: Networking/Remote access
 Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libgnomeui2-devel
-BuildRequires: libglade2.0-devel
-BuildRequires: libgnutls-devel
+BuildRequires: libice-devel
+BuildRequires: libsm-devel
+BuildRequires: libx11-devel
+BuildRequires: libxdamage-devel
+BuildRequires: libxext-devel
+BuildRequires: libxfixes-devel
+BuildRequires: libxtst-devel
+BuildRequires: gnutls-devel
+BuildRequires: avahi-glib-devel
+BuildRequires: avahi-client-devel
+BuildRequires: libgcrypt-devel
 BuildRequires: libsoup-devel
 BuildRequires: libnotify-devel
 BuildRequires: unique-devel
+BuildRequires: gtk+2-devel
+BuildRequires: jpeg-devel
 BuildRequires: intltool
-BuildRequires: libxtst-devel
-BuildRequires: libxdamage-devel
 BuildRequires: dbus-glib-devel
-BuildRequires: desktop-file-utils
 BuildRequires: libtelepathy-glib-devel
 BuildRequires: libgnome-keyring-devel
 
@@ -33,6 +40,7 @@ The package contains an integrated GNOME VNC server.
 
 %build
 %configure2_5x \
+  --disable-schemas-install \
   --enable-avahi \
   --enable-telepathy \
   --enable-gnome-keyring \
@@ -40,27 +48,16 @@ The package contains an integrated GNOME VNC server.
   --enable-libnotify 		\
   --disable-network-manager
 
-
-#gw add missing libs, parallel make is broken in 2.27.5
-make LIBS="-lSM -ljpeg"
-
 %install
 rm -rf $RPM_BUILD_ROOT
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
+%makeinstall_std
 %find_lang %name --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/vino-server.schemas > /dev/null
-
 %preun
-if [ "$1" = "0" ] ; then
- export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
- gconftool-2 --makefile-uninstall-rule %{_sysconfdir}/gconf/schemas/vino-server.schemas > /dev/null
-fi
+%preun_uninstall_gconf_schemas vino-server
 
 %files -f %name.lang
 %defattr(-,root,root)
@@ -74,4 +71,3 @@ fi
 %_datadir/applications/vino-preferences.desktop
 %_datadir/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
 %_datadir/telepathy/clients/Vino.client
-
