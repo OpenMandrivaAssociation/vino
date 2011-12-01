@@ -50,12 +50,12 @@ The package contains an integrated GNOME VNC server.
   --disable-network-manager
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %name --with-gnome
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %preun
 %preun_uninstall_gconf_schemas vino-server
