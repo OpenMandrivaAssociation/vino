@@ -2,7 +2,7 @@ Summary: GNOME VNC server and client
 Name: vino
 Version: 3.2.2
 Release: 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.bz2
+Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Networking/Remote access
 Url: http://www.gnome.org
@@ -39,13 +39,9 @@ The package contains an integrated GNOME VNC server.
 
 %build
 %configure2_5x \
-  --disable-schemas-install \
-  --enable-avahi \
-  --enable-telepathy \
-  --enable-gnome-keyring \
-  --disable-http-server		\
-  --enable-libnotify 		\
-  --disable-network-manager
+  --disable-http-server
+
+%make
 
 %install
 rm -rf %{buildroot}
@@ -54,7 +50,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
-%{_sysconfdir}/gconf/schemas/vino-server.schemas
+#{_sysconfdir}/gconf/schemas/vino-server.schemas
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_bindir}/vino-passwd
 %{_bindir}/vino-preferences
@@ -62,5 +58,7 @@ rm -rf %{buildroot}
 %{_datadir}/vino
 %{_datadir}/applications/vino-preferences.desktop
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
+%{_datadir}/GConf/gsettings/org.gnome.Vino.convert
+%{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/telepathy/clients/Vino.client
 
