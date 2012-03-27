@@ -1,8 +1,8 @@
 Summary: GNOME VNC server and client
 Name: vino
-Version: 3.2.2
+Version: 3.4.0
 Release: 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%{name}-%{version}.tar.xz
+Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%(echo %version |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Networking/Remote access
 Url: http://www.gnome.org
@@ -15,7 +15,7 @@ BuildRequires:	pkgconfig(avahi-glib)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
-BuildRequires:	pkgconfig(gnutls)
+BuildRequires:	pkgconfig(gnutls) >= 3.0
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
