@@ -1,6 +1,6 @@
 Summary: GNOME VNC server and client
 Name: vino
-Version: 3.4.0
+Version: 3.4.1
 Release: 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%(echo %version |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 License: GPLv2+
@@ -44,7 +44,6 @@ The package contains an integrated GNOME VNC server.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %{name} --with-gnome
 
@@ -61,4 +60,3 @@ rm -rf %{buildroot}
 %{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/telepathy/clients/Vino.client
-
