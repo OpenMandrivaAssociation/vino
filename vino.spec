@@ -1,11 +1,13 @@
-Summary: GNOME VNC server and client
-Name: vino
-Version: 3.4.1
-Release: 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/vino/%(echo %version |cut -d. -f1-2)/%{name}-%{version}.tar.xz
-License: GPLv2+
-Group: Networking/Remote access
-Url: http://www.gnome.org
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
+Summary:	GNOME VNC server and client
+Name:		vino
+Version:	3.6.2
+Release:	1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
+License:	GPLv2+
+Group:		Networking/Remote access
+Url:		http://www.gnome.org
 
 BuildRequires:	gnome-common
 BuildRequires:	intltool
@@ -39,7 +41,13 @@ The package contains an integrated GNOME VNC server.
 
 %build
 %configure2_5x \
-  --disable-http-server
+	--disable-schemas-install \
+	--disable-http-server \
+	--disable-network-manager \
+	--enable-avahi \
+	--enable-telepathy \
+	--enable-gnome-keyring \
+	--enable-libnotify 
 
 %make
 
@@ -49,7 +57,6 @@ The package contains an integrated GNOME VNC server.
 
 %files -f %{name}.lang
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
-#{_sysconfdir}/gconf/schemas/vino-server.schemas
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_bindir}/vino-passwd
 %{_bindir}/vino-preferences
@@ -60,3 +67,4 @@ The package contains an integrated GNOME VNC server.
 %{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/telepathy/clients/Vino.client
+
