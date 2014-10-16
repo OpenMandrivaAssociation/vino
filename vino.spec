@@ -2,8 +2,8 @@
 
 Summary:	GNOME VNC server and client
 Name:		vino
-Version:	3.6.2
-Release:	7
+Version:	3.14.0
+Release:	1
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Networking/Remote access
@@ -40,14 +40,7 @@ The package contains an integrated GNOME VNC server.
 %setup -q
 
 %build
-%configure2_5x \
-	--disable-schemas-install \
-	--disable-http-server \
-	--disable-network-manager \
-	--enable-avahi \
-	--enable-telepathy \
-	--enable-gnome-keyring \
-	--enable-libnotify 
+%configure
 
 %make
 
@@ -57,12 +50,8 @@ The package contains an integrated GNOME VNC server.
 
 %files -f %{name}.lang
 %doc README NEWS AUTHORS ChangeLog docs/remote-desktop.txt docs/TODO
-%{_sysconfdir}/xdg/autostart/vino-server.desktop
-%{_bindir}/vino-passwd
-%{_bindir}/vino-preferences
 %{_libexecdir}/vino-server
-%{_datadir}/vino
-%{_datadir}/applications/vino-preferences.desktop
+%{_datadir}/applications/vino-server.desktop
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
 %{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/*.xml
