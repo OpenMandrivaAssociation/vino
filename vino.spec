@@ -53,7 +53,6 @@ The package contains an integrated GNOME VNC server.
 %{_libexecdir}/vino-server
 %{_datadir}/applications/vino-server.desktop
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
-%{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/telepathy/clients/Vino.client
 
