@@ -1,5 +1,6 @@
 removed_sources:
   vino-3.14.0.tar.xz: c26168b0a6dfa6f646dcc131a09aaca2789623f1
+  vino-3.16.0.tar.xz: e821c5a91085c482a35901434468a826cabbc063
   vino-3.6.2.tar.xz: 5233498da7e9c6b8f4c998a8c4eaa5c57045555a
 sources:
-  vino-3.16.0.tar.xz: e821c5a91085c482a35901434468a826cabbc063
+  vino-3.18.1.tar.xz: 58bd9e020cdd51c164598370f42173c0e4507287

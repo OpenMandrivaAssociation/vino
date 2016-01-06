@@ -2,7 +2,7 @@
 
 Summary:	GNOME VNC server and client
 Name:		vino
-Version:	3.16.0
+Version:	3.18.1
 Release:	4
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
