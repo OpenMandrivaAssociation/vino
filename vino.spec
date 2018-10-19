@@ -1,4 +1,5 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _userunitdir /usr/lib/systemd/user/
 
 Summary:	GNOME VNC server and client
 Name:		vino
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:  pkgconfig(systemd)
 
 %description
 The package contains an integrated GNOME VNC server.
