@@ -1,9 +1,10 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _userunitdir /usr/lib/systemd/user/
 
 Summary:	GNOME VNC server and client
 Name:		vino
-Version:	3.18.1
-Release:	5
+Version:	3.22.0
+Release:	1
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Networking/Remote access
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:  pkgconfig(systemd)
 
 %description
 The package contains an integrated GNOME VNC server.
@@ -55,4 +57,5 @@ The package contains an integrated GNOME VNC server.
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/telepathy/clients/Vino.client
+%{_userunitdir}/%{name}-server.service
 
