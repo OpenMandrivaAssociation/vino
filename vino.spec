@@ -12,7 +12,7 @@ Url:		http://www.gnome.org
 
 BuildRequires:	gnome-common
 BuildRequires:	intltool
-BuildRequires:	libgcrypt-devel
+BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(avahi-client)
 BuildRequires:	pkgconfig(avahi-glib)
 BuildRequires:	pkgconfig(dbus-glib-1)
