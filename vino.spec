@@ -4,7 +4,7 @@
 Summary:	GNOME VNC server and client
 Name:		vino
 Version:	3.22.0
-Release:	2
+Release:	3
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Networking/Remote access
@@ -23,7 +23,7 @@ BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libsoup-2.4)
-BuildRequires:	pkgconfig(NetworkManager)
+BuildRequires:	pkgconfig(libnm)
 BuildRequires:	pkgconfig(telepathy-glib)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(ice)
@@ -44,10 +44,10 @@ The package contains an integrated GNOME VNC server.
 %build
 %configure
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name} --with-gnome
 
 %files -f %{name}.lang
