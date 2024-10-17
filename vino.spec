@@ -8,7 +8,7 @@ Release:	6
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/%{url_ver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Networking/Remote access
-Url:		http://www.gnome.org
+Url:		https://www.gnome.org
 
 BuildRequires:	gnome-common
 BuildRequires:	intltool
