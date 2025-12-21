@@ -10,6 +10,11 @@ License:	GPLv2+
 Group:		Networking/Remote access
 Url:		https://www.gnome.org
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gnome-common
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(libgcrypt)
